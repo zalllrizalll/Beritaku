@@ -14,4 +14,11 @@ class NewsRepository {
   Future<Either<String, List<Article>>> fetchNews(String source) async {
     return await dataSource.getNews(source);
   }
+
+  Future<Either<String, List<Article>>> searchNews(
+    String source,
+    String query,
+  ) async {
+    return await dataSource.searchNews(source, query);
+  }
 }

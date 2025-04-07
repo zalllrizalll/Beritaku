@@ -22,3 +22,12 @@ class GetNewsEvent extends NewsEvent {
   @override
   List<Object?> get props => [source];
 }
+
+class SearchNewsEvent extends NewsEvent {
+  final String source;
+  final String query;
+  const SearchNewsEvent(this.source, this.query);
+
+  @override
+  List<Object?> get props => [query];
+}

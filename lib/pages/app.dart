@@ -27,6 +27,9 @@ class AppView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(routerConfig: Navigation().router);
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routerConfig: Navigation().router,
+    );
   }
 }

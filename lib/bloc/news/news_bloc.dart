@@ -37,5 +37,19 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
         emit(NewsError(e.toString()));
       }
     });
+
+    on<SearchNewsEvent>((event, emit) async {
+      emit(NewsLoading());
+      try {
+        final result = await repository.searchNews(event.source, event.query);
+
+        result.fold(
+          (error) => emit(NewsError(error)),
+          (articles) => emit(NewsLoaded(articles)),
+        );
+      } catch (e) {
+        emit(NewsError(e.toString()));
+      }
+    });
   }
 }
