@@ -5,6 +5,7 @@ import 'package:beritaku/data/datasource/news_datasource.dart';
 import 'package:beritaku/data/repository/news_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class NewsPage extends StatefulWidget {
   final String source;
@@ -90,7 +91,12 @@ class _NewsPageState extends State<NewsPage> {
                       itemBuilder: (context, index) {
                         final news = state.articles[index];
 
-                        return NewsCard(article: news);
+                        return NewsCard(
+                          article: news,
+                          onTap: () async {
+                            await context.pushNamed('detail', extra: news);
+                          },
+                        );
                       },
                     );
                   } else if (state is NewsError) {
