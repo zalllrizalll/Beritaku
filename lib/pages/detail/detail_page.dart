@@ -3,6 +3,7 @@ import 'package:beritaku/components/custom_button_widget.dart';
 import 'package:beritaku/components/favourite_icon_widget.dart';
 import 'package:beritaku/data/models/article.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailPage extends StatefulWidget {
   final Article article;
@@ -13,6 +14,15 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
+  Future<void> _launchUrl(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } else {
+      throw Exception('Could not launch $url');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +69,11 @@ class _DetailPageState extends State<DetailPage> {
           ],
         ),
       ),
-      bottomNavigationBar: CustomButtonWidget(),
+      bottomNavigationBar: CustomButtonWidget(
+        onPressed: () {
+          _launchUrl(widget.article.url);
+        },
+      ),
     );
   }
 }

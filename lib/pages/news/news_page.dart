@@ -60,7 +60,9 @@ class _NewsPageState extends State<NewsPage> {
               child: BlocBuilder<NewsBloc, NewsState>(
                 builder: (context, state) {
                   if (state is NewsLoading) {
-                    return const Center(child: CircularProgressIndicator());
+                    return const Center(
+                      child: CircularProgressIndicator(color: Colors.blue),
+                    );
                   } else if (state is NewsLoaded) {
                     if (state.articles.isEmpty) {
                       return const Center(

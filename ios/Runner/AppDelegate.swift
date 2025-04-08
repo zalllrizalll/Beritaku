@@ -10,4 +10,11 @@ import UIKit
     GeneratedPluginRegistrant.register(with: self)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
+
+  @MainActor
+  func open(
+    _ url: URL,
+    options: [UIApplication.OpenExternalURLOptionsKey : Any] = [:],
+    completionHandler completion: (@MainActor (Bool) -> Void)? = nil
+  )
 }

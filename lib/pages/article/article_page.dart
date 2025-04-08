@@ -48,7 +48,9 @@ class _ArticlePageState extends State<ArticlePage> {
           bloc: newsBloc,
           builder: (context, state) {
             if (state is NewsLoading) {
-              return const Center(child: CircularProgressIndicator());
+              return const Center(
+                child: CircularProgressIndicator(color: Colors.blue),
+              );
             } else if (state is NewsLoaded) {
               final uniqueArticles =
                   state.articles
