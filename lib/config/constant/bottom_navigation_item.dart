@@ -1,0 +1,1 @@
+enum BottomNavigationItem { home, bookmark }

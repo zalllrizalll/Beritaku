@@ -1,5 +1,7 @@
 import 'package:beritaku/data/models/article.dart';
 import 'package:beritaku/pages/article/article_page.dart';
+import 'package:beritaku/pages/bookmark/bookmark_page.dart';
+import 'package:beritaku/pages/bottom_navigation/bottom_navigation_page.dart';
 import 'package:beritaku/pages/detail/detail_page.dart';
 import 'package:beritaku/pages/home/home_page.dart';
 import 'package:beritaku/pages/news/news_page.dart';
@@ -7,11 +9,24 @@ import 'package:go_router/go_router.dart';
 
 class Navigation {
   final _router = GoRouter(
+    initialLocation: '/',
     routes: [
-      GoRoute(
-        name: 'home',
-        path: '/',
-        builder: (context, state) => const HomePage(),
+      ShellRoute(
+        builder: (context, state, child) => BottomNavigationPage(child: child),
+        routes: [
+          GoRoute(
+            name: 'home',
+            path: '/',
+            builder: (context, state) => const HomePage(),
+          ),
+          GoRoute(
+            name: 'bookmark',
+            path: '/bookmark',
+            builder: (context, state) {
+              return const BookmarkPage();
+            },
+          ),
+        ],
       ),
       GoRoute(
         name: 'article',

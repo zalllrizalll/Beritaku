@@ -1,3 +1,4 @@
+import 'package:beritaku/bloc/bloc/bottom_navigation_bloc.dart';
 import 'package:beritaku/bloc/news/news_bloc.dart';
 import 'package:beritaku/config/routes/navigation.dart';
 import 'package:beritaku/data/repository/news_repository.dart';
@@ -16,6 +17,7 @@ class App extends StatelessWidget {
               (context) =>
                   NewsBloc(RepositoryProvider.of<NewsRepository>(context)),
         ),
+        BlocProvider(create: (context) => BottomNavigationBloc()),
       ],
       child: const AppView(),
     );
