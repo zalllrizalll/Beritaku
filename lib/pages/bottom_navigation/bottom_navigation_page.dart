@@ -15,10 +15,10 @@ class BottomNavigationPage extends StatelessWidget {
     bloc.add(BottomNavigationEvent(tab));
     switch (tab) {
       case BottomNavigationItem.home:
-        context.pushNamed('home');
+        context.goNamed('home');
         break;
       case BottomNavigationItem.bookmark:
-        context.pushNamed('bookmark');
+        context.goNamed('bookmark');
         break;
     }
   }
