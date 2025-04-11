@@ -1,4 +1,5 @@
 import 'package:beritaku/bloc/favourite/favourite_bloc.dart';
+import 'package:beritaku/components/body_favourite_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -57,72 +58,7 @@ class _FavouritePageState extends State<FavouritePage> {
               itemBuilder: (context, index) {
                 final article = state.articles[index];
 
-                return Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 2,
-                  ),
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: ListTile(
-                      leading:
-                          article.urlToImage != null
-                              ? ConstrainedBox(
-                                constraints: const BoxConstraints(
-                                  minHeight: 60,
-                                  minWidth: 60,
-                                  maxHeight: 60,
-                                  maxWidth: 60,
-                                ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: Image.network(
-                                    article.urlToImage!,
-                                    fit: BoxFit.cover,
-                                    errorBuilder: (context, error, stackTrace) {
-                                      return const Icon(
-                                        Icons.broken_image,
-                                        size: 30,
-                                        color: Colors.grey,
-                                      );
-                                    },
-                                  ),
-                                ),
-                              )
-                              : const Icon(
-                                Icons.image_not_supported,
-                                size: 30,
-                                color: Colors.grey,
-                              ),
-                      title: Text(
-                        article.title ?? 'No title',
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        maxLines: 2,
-                      ),
-                      subtitle: Text(
-                        article.description ?? '',
-                        style: const TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey,
-                        ),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      trailing: IconButton(
-                        icon: Icon(Icons.delete, color: Colors.red),
-                        onPressed: () {
-                          final bloc = context.read<FavouriteBloc>();
-                          bloc.add(RemoveFavouriteEvent(article.url!));
-                        },
-                      ),
-                    ),
-                  ),
-                );
+                return BodyFavouritePage(article: article);
               },
             );
           } else if (state is FavouriteError) {
