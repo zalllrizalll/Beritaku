@@ -55,14 +55,17 @@ class BodyDetailPage extends StatelessWidget {
           Row(
             spacing: 8,
             mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Icon(Icons.person, color: Colors.blue, size: 24),
-              Text(
-                article.author ?? 'No author',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black,
+              Expanded(
+                child: Text(
+                  article.author ?? 'No author',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black,
+                  ),
                 ),
               ),
             ],

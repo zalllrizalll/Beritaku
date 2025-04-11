@@ -1,1 +1,1 @@
-enum BottomNavigationItem { home, bookmark }
+enum BottomNavigationItem { home, favourite }

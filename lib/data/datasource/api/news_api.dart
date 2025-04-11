@@ -4,7 +4,7 @@ import 'package:beritaku/data/models/news_response.dart';
 import 'package:dio/dio.dart';
 import 'package:either_dart/either.dart';
 
-class NewsDatasource {
+class NewsApi {
   final dio = Dio(BaseOptions(baseUrl: BaseUrl.urlServer));
 
   Future<Either<String, List<Article>>> getArticles(String category) async {

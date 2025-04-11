@@ -1,4 +1,4 @@
-import 'package:beritaku/bloc/bloc/bottom_navigation_bloc.dart';
+import 'package:beritaku/bloc/bottom_navigation/bottom_navigation_bloc.dart';
 import 'package:beritaku/config/constant/bottom_navigation_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,8 +17,8 @@ class BottomNavigationPage extends StatelessWidget {
       case BottomNavigationItem.home:
         context.goNamed('home');
         break;
-      case BottomNavigationItem.bookmark:
-        context.goNamed('bookmark');
+      case BottomNavigationItem.favourite:
+        context.goNamed('favourite');
         break;
     }
   }
@@ -48,9 +48,9 @@ class BottomNavigationPage extends StatelessWidget {
                 tooltip: 'Home',
               ),
               BottomNavigationBarItem(
-                icon: const Icon(Icons.bookmark),
-                label: 'Bookmark',
-                tooltip: 'Bookmark',
+                icon: const Icon(Icons.favorite),
+                label: 'Favourite',
+                tooltip: 'Favourite',
               ),
             ],
           ),

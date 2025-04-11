@@ -28,7 +28,7 @@ class _DetailPageState extends State<DetailPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Detail Article',
+          'Article Details',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
@@ -61,7 +61,11 @@ class _DetailPageState extends State<DetailPage> {
                     width: double.infinity,
                   ),
                 ),
-                Positioned(top: 15, right: 15, child: FavouriteIconWidget()),
+                Positioned(
+                  top: 15,
+                  right: 15,
+                  child: FavouriteIconWidget(article: widget.article),
+                ),
               ],
             ),
             const SizedBox.square(dimension: 8),

@@ -1,9 +1,9 @@
-import 'package:beritaku/data/datasource/news_datasource.dart';
+import 'package:beritaku/data/datasource/api/news_api.dart';
 import 'package:beritaku/data/models/article.dart';
 import 'package:either_dart/either.dart';
 
 class NewsRepository {
-  final NewsDatasource dataSource;
+  final NewsApi dataSource;
 
   NewsRepository(this.dataSource);
 
