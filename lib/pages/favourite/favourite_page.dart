@@ -1,7 +1,9 @@
 import 'package:beritaku/bloc/favourite/favourite_bloc.dart';
 import 'package:beritaku/components/body_favourite_page.dart';
+import 'package:beritaku/data/models/article_mapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class FavouritePage extends StatefulWidget {
   const FavouritePage({super.key});
@@ -58,7 +60,15 @@ class _FavouritePageState extends State<FavouritePage> {
               itemBuilder: (context, index) {
                 final article = state.articles[index];
 
-                return BodyFavouritePage(article: article);
+                return BodyFavouritePage(
+                  article: article,
+                  onTap: () async {
+                    await context.pushNamed(
+                      'detail',
+                      extra: article.toArticleModel(),
+                    );
+                  },
+                );
               },
             );
           } else if (state is FavouriteError) {
