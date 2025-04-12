@@ -19,17 +19,17 @@ class NewsCategoryCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(16.0),
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(
-                    minWidth: 100,
+                    minWidth: 80,
                     minHeight: 80,
-                    maxWidth: 100,
+                    maxWidth: 80,
                     maxHeight: 80,
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8),
-                    child: SvgPicture.asset(
+                    child: Image.asset(
                       newsCategory.image,
                       fit: BoxFit.cover,
                       height: 20,
@@ -51,7 +51,6 @@ class NewsCategoryCard extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black54,
                   ),
                 ),
               ),

@@ -16,20 +16,12 @@ class BodyDetailPage extends StatelessWidget {
         children: [
           Text(
             article.title,
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             textAlign: TextAlign.justify,
           ),
           Text(
             article.content ?? 'No content',
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-              color: Colors.black54,
-            ),
+            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
             textAlign: TextAlign.justify,
           ),
           Divider(color: Colors.grey, height: 1),
@@ -44,11 +36,7 @@ class BodyDetailPage extends StatelessWidget {
               ),
               Text(
                 DateHelper.formatDate(article.publishedAt.toString()),
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black,
-                ),
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
               ),
             ],
           ),
@@ -61,11 +49,7 @@ class BodyDetailPage extends StatelessWidget {
               Expanded(
                 child: Text(
                   article.author ?? 'No author',
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black,
-                  ),
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                 ),
               ),
             ],

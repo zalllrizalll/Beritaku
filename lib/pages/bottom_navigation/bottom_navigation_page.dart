@@ -20,6 +20,9 @@ class BottomNavigationPage extends StatelessWidget {
       case BottomNavigationItem.favourite:
         context.goNamed('favourite');
         break;
+      case BottomNavigationItem.settings:
+        context.goNamed('settings');
+        break;
     }
   }
 
@@ -51,6 +54,11 @@ class BottomNavigationPage extends StatelessWidget {
                 icon: const Icon(Icons.favorite),
                 label: 'Favourite',
                 tooltip: 'Favourite',
+              ),
+              BottomNavigationBarItem(
+                icon: const Icon(Icons.settings),
+                label: 'Settings',
+                tooltip: 'Settings',
               ),
             ],
           ),

@@ -56,7 +56,6 @@ class NewsCard extends StatelessWidget {
                             ).textTheme.bodyMedium?.copyWith(
                               fontSize: 12,
                               fontWeight: FontWeight.bold,
-                              color: Colors.black54,
                             ),
                             maxLines: 1,
                           ),
@@ -89,10 +88,9 @@ class NewsCard extends StatelessWidget {
                     Text(
                       article.description ?? 'No description',
                       maxLines: 2,
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        fontSize: 12,
-                        color: Colors.black54,
-                      ),
+                      style: Theme.of(
+                        context,
+                      ).textTheme.bodyMedium?.copyWith(fontSize: 12),
                       textAlign: TextAlign.justify,
                     ),
                   ],
