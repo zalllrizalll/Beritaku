@@ -1,7 +1,7 @@
 import 'package:beritaku/components/news_category_card.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../../data/dummy/news_category_dummy.dart';
+import '../../data/category/news_category_dummy.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
